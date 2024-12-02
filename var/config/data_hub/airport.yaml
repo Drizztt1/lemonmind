@@ -1,0 +1,331 @@
+pimcore_data_hub:
+    configurations:
+        airport:
+            general:
+                active: true
+                type: dataImporterDataObject
+                name: airport
+                description: ''
+                group: ''
+                path: null
+                modificationDate: 1733166769
+                createDate: 1732828439
+            loaderConfig:
+                type: asset
+                settings:
+                    assetPath: /Arkusz1.csv
+            interpreterConfig:
+                type: csv
+                settings:
+                    skipFirstRow: true
+                    delimiter: ','
+                    enclosure: '"'
+                    escape: \
+            resolverConfig:
+                elementType: dataObject
+                dataObjectClassId: airport
+                loadingStrategy:
+                    type: attribute
+                    settings:
+                        dataSourceIndex: '0'
+                        attributeName: airportId
+                        language: ''
+                        includeUnpublished: true
+                createLocationStrategy:
+                    type: staticPath
+                    settings:
+                        path: /Airport
+                locationUpdateStrategy:
+                    type: noChange
+                publishingStrategy:
+                    type: noChangeUnpublishNew
+            processingConfig:
+                executionType: parallel
+                idDataIndex: ''
+            mappingConfig:
+                -
+                    label: 'id [0]'
+                    dataSourceIndex:
+                        - '0'
+                    transformationResultType: numeric
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: airportId
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: numeric
+                -
+                    label: 'ident [1]'
+                    dataSourceIndex:
+                        - '1'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: ident
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'type [2]'
+                    dataSourceIndex:
+                        - '2'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: airportType
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'name [3]'
+                    dataSourceIndex:
+                        - '3'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: Name
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'latitude_deg [4]'
+                    dataSourceIndex:
+                        - '4'
+                    transformationResultType: numeric
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: latitudeDeg
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: numeric
+                -
+                    label: 'longitude_deg [5]'
+                    dataSourceIndex:
+                        - '5'
+                    transformationResultType: numeric
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: longitudeDeg
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: numeric
+                -
+                    label: 'elevation_ft [6]'
+                    dataSourceIndex:
+                        - '6'
+                    settings:
+                        unitSourceSelect: static
+                        staticUnitSelect: ft
+                    transformationResultType: quantityValue
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: elevationFt
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            settings:
+                                unitSourceSelect: static
+                                staticUnitSelect: ft
+                            type: quantityValue
+                -
+                    label: 'continent [7]'
+                    dataSourceIndex:
+                        - '7'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: continent
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'iso_country [8]'
+                    dataSourceIndex:
+                        - '8'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: isoCountry
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'iso_region [9]'
+                    dataSourceIndex:
+                        - '9'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: isoRegion
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'municipality [10]'
+                    dataSourceIndex:
+                        - '10'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: municipality
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'scheduled_service [11]'
+                    dataSourceIndex:
+                        - '11'
+                    transformationResultType: boolean
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: scheduledService
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: boolean
+                -
+                    label: 'gps_code [12]'
+                    dataSourceIndex:
+                        - '12'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: gpsCode
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'iata_code [13]'
+                    dataSourceIndex:
+                        - '13'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: iataCode
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'local_code [14]'
+                    dataSourceIndex:
+                        - '14'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: localCode
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'home_link [15]'
+                    dataSourceIndex:
+                        - '15'
+                    settings:
+                        original: ''
+                        converted: ''
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: homeLink
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            settings:
+                                original: ''
+                                converted: ''
+                            type: conditionalConversion
+                -
+                    label: 'wikipedia_link [16]'
+                    dataSourceIndex:
+                        - '16'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: wikipediaLink
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'keywords [17]'
+                    dataSourceIndex:
+                        - '17'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: keywords
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: key
+                    dataSourceIndex:
+                        - '3'
+                        - '0'
+                    settings:
+                        glue: ' - '
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: key
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            settings:
+                                glue: ' - '
+                            type: combine
+            executionConfig:
+                scheduleType: recurring
+                cronDefinition: ''
+                scheduledAt: ''
+            permissions:
+                user: {  }
+                role: {  }
+            workspaces: {  }

@@ -1,0 +1,14 @@
+pimcore:
+    objects:
+        select_options:
+            definitions:
+                FrequenciesType:
+                    id: FrequenciesType
+                    group: ''
+                    useTraits: ''
+                    implementsInterfaces: ''
+                    selectOptions:
+                        -
+                            value: CTAF
+                            label: CTAF
+                            name: ''

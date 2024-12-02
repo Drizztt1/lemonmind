@@ -1,0 +1,10 @@
+pimcore:
+    objects:
+        select_options:
+            definitions:
+                Surface:
+                    id: Surface
+                    group: null
+                    useTraits: ''
+                    implementsInterfaces: ''
+                    selectOptions: {  }

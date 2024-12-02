@@ -1,0 +1,26 @@
+[
+    {
+        "dao": null,
+        "id": "m",
+        "abbreviation": "m",
+        "group": "",
+        "longname": "Meters",
+        "baseunit": null,
+        "reference": "",
+        "factor": null,
+        "conversionOffset": null,
+        "converter": ""
+    },
+    {
+        "dao": null,
+        "id": "ft",
+        "abbreviation": "ft",
+        "group": "",
+        "longname": "Feet",
+        "baseunit": "m",
+        "reference": "",
+        "factor": 0.3048,
+        "conversionOffset": null,
+        "converter": ""
+    }
+]

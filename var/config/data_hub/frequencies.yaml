@@ -1,0 +1,158 @@
+pimcore_data_hub:
+    configurations:
+        frequencies:
+            general:
+                active: true
+                type: dataImporterDataObject
+                name: frequencies
+                description: ''
+                group: ''
+                path: null
+                modificationDate: 1733164592
+                createDate: 1732811511
+            loaderConfig:
+                type: asset
+                settings:
+                    assetPath: /airport-frequencies.csv
+            interpreterConfig:
+                type: csv
+                settings:
+                    skipFirstRow: true
+                    delimiter: ','
+                    enclosure: '"'
+                    escape: \
+            resolverConfig:
+                elementType: dataObject
+                dataObjectClassId: frequencies
+                loadingStrategy:
+                    type: attribute
+                    settings:
+                        dataSourceIndex: '0'
+                        attributeName: frequenciesId
+                        language: ''
+                        includeUnpublished: true
+                createLocationStrategy:
+                    type: staticPath
+                    settings:
+                        path: /Frequencies
+                locationUpdateStrategy:
+                    type: noChange
+                publishingStrategy:
+                    type: noChangeUnpublishNew
+            processingConfig:
+                executionType: parallel
+                idDataIndex: ''
+            mappingConfig:
+                -
+                    label: 'id [0]'
+                    dataSourceIndex:
+                        - '0'
+                    transformationResultType: numeric
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: frequenciesId
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: numeric
+                -
+                    label: 'airport_ref [1]'
+                    dataSourceIndex:
+                        - '1'
+                    transformationResultType: numeric
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: airportRef
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: numeric
+                -
+                    label: 'airport_ident [2]'
+                    dataSourceIndex:
+                        - '2'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: airportIdent
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'type [3]'
+                    dataSourceIndex:
+                        - '3'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: frequenciesType
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'description [4]'
+                    dataSourceIndex:
+                        - '4'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: description
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: 'frequency_mhz [5]'
+                    dataSourceIndex:
+                        - '5'
+                    transformationResultType: numeric
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: frequencyMhz
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            type: numeric
+                -
+                    label: Key
+                    dataSourceIndex:
+                        - '0'
+                        - '1'
+                        - '2'
+                    settings:
+                        glue: ' - '
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: key
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            settings:
+                                glue: ' - '
+                            type: combine
+            executionConfig:
+                scheduleType: recurring
+                cronDefinition: ''
+                scheduledAt: ''
+            permissions:
+                user: {  }
+                role: {  }
+            workspaces: {  }

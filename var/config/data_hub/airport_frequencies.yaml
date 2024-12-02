@@ -1,0 +1,81 @@
+pimcore_data_hub:
+    configurations:
+        airport_frequencies:
+            general:
+                active: true
+                type: dataImporterDataObject
+                name: airport_frequencies
+                description: ''
+                group: 'AP relations'
+                path: null
+                modificationDate: 1733141468
+                createDate: 1733140772
+            loaderConfig:
+                type: asset
+                settings:
+                    assetPath: /airport-frequencies.csv
+            interpreterConfig:
+                type: csv
+                settings:
+                    skipFirstRow: true
+                    delimiter: ','
+                    enclosure: '"'
+                    escape: \
+            resolverConfig:
+                elementType: dataObject
+                dataObjectClassId: airport
+                loadingStrategy:
+                    type: attribute
+                    settings:
+                        dataSourceIndex: '2'
+                        attributeName: ident
+                        language: ''
+                        includeUnpublished: true
+                createLocationStrategy:
+                    type: doNotCreate
+                locationUpdateStrategy:
+                    type: noChange
+                publishingStrategy:
+                    type: noChangeUnpublishNew
+            processingConfig:
+                executionType: parallel
+                idDataIndex: ''
+            mappingConfig:
+                -
+                    label: 'new column'
+                    dataSourceIndex:
+                        - '0'
+                    transformationResultType: dataObjectArray
+                    dataTarget:
+                        type: manyToManyRelation
+                        settings:
+                            fieldName: frequencies
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                            overwriteMode: merge
+                    settings:
+                        loadStrategy: attribute
+                        attributeDataObjectClassId: frequencies
+                        attributeName: frequenciesId
+                        attributeLanguage: ''
+                        loadUnpublished: 'on'
+                    transformationPipeline:
+                        -
+                            type: asArray
+                        -
+                            settings:
+                                loadStrategy: attribute
+                                attributeDataObjectClassId: frequencies
+                                attributeName: frequenciesId
+                                attributeLanguage: ''
+                                loadUnpublished: 'on'
+                            type: loadDataObject
+            executionConfig:
+                scheduleType: recurring
+                cronDefinition: ''
+                scheduledAt: ''
+            permissions:
+                user: {  }
+                role: {  }
+            workspaces: {  }
